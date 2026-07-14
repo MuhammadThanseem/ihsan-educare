@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notifications } from "@/lib/data";
+import Icon from "./Icon";
 
 const tagStyles: Record<string, string> = {
   "Exam Alert": "bg-brand-50 text-brand-700",
@@ -15,8 +16,9 @@ export default function NotificationsWidget() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             Stay Updated
           </span>
-          <h2 className="mt-2 font-display text-2xl font-semibold text-brand-950">
-            🔔 Latest Notifications
+          <h2 className="mt-2 flex items-center gap-3 font-display text-2xl font-semibold text-brand-950">
+            <Icon name="bell" className="text-xl text-brand-700" />
+            Latest Notifications
           </h2>
         </div>
         <Link

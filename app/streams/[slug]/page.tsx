@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStreamBySlug, streams } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import Icon from "@/components/Icon";
 
 export function generateStaticParams() {
   return streams.map((stream) => ({ slug: stream.slug }));
@@ -91,8 +92,8 @@ export default async function StreamDetailPage({
 
       <Reveal className="mt-5">
         <div className="flex items-center gap-4">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-3xl">
-            {stream.categoryEmoji}
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-2xl text-brand-700">
+            <Icon name={stream.categoryIcon} />
           </span>
           <div>
             <p className="text-sm font-medium uppercase tracking-wide text-gold-600">

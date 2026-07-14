@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CareerFinderClient from "@/components/CareerFinderClient";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Career Finder — IHSAN EDUCARE",
@@ -12,7 +13,8 @@ export default function CareerFinderPage() {
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="max-w-2xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
-          🤖 Flagship Feature
+          <Icon name="robot" />
+          Flagship Feature
         </span>
         <h1 className="mt-4 font-display text-4xl font-semibold text-brand-950">
           Career Finder

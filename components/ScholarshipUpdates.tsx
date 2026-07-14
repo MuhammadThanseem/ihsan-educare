@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { scholarshipUpdates } from "@/lib/data";
+import Icon from "./Icon";
 
 export default function ScholarshipUpdates() {
   return (
@@ -9,8 +10,9 @@ export default function ScholarshipUpdates() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-700">
             Funding
           </span>
-          <h2 className="mt-2 font-display text-2xl font-semibold text-brand-950">
-            💰 Scholarship Updates
+          <h2 className="mt-2 flex items-center gap-3 font-display text-2xl font-semibold text-brand-950">
+            <Icon name="sack-dollar" className="text-xl text-gold-700" />
+            Scholarship Updates
           </h2>
         </div>
         <Link

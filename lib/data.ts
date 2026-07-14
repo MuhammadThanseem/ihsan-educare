@@ -3,6 +3,8 @@
 // launch, since government exam portals change often and a wrong link is
 // worse than no link.
 
+import type { IconName } from "./icons";
+
 export type OfficialLink = {
   label: string;
   url: string;
@@ -12,7 +14,7 @@ export type Stream = {
   slug: string;
   name: string;
   category: string;
-  categoryEmoji: string;
+  categoryIcon: IconName;
   summary: string;
   eligibility?: string;
   exams: string[];
@@ -24,7 +26,7 @@ export type Stream = {
 export type CategoryGroup = {
   slug: string;
   name: string;
-  emoji: string;
+  icon: IconName;
   description: string;
 };
 
@@ -32,55 +34,55 @@ export const categories: CategoryGroup[] = [
   {
     slug: "medical",
     name: "Medical & Health Sciences",
-    emoji: "🩺",
+    icon: "stethoscope",
     description: "MBBS, BDS, AYUSH, Nursing, Pharmacy and Allied Health courses.",
   },
   {
     slug: "engineering",
     name: "Engineering & Technology",
-    emoji: "⚙️",
+    icon: "gear",
     description: "BTech / BE through JEE Main, JEE Advanced and KEAM.",
   },
   {
     slug: "commerce",
     name: "Commerce & Management",
-    emoji: "💼",
+    icon: "briefcase",
     description: "BCom, BBA and integrated management programmes.",
   },
   {
     slug: "law",
     name: "Law",
-    emoji: "⚖️",
+    icon: "scale-balanced",
     description: "Integrated LLB through CLAT, AILET and KLEE.",
   },
   {
     slug: "aviation",
     name: "Aviation",
-    emoji: "🛩️",
+    icon: "plane",
     description: "Commercial pilot training and DGCA requirements.",
   },
   {
     slug: "defence",
     name: "Defence",
-    emoji: "🛡️",
+    icon: "shield-halved",
     description: "Army, Navy and Air Force entry through NDA, Agniveer and AFCAT.",
   },
   {
     slug: "teaching",
     name: "Teaching",
-    emoji: "👨‍🏫",
+    icon: "chalkboard-user",
     description: "B.Ed and teacher eligibility routes via CUET, KTET and CTET.",
   },
   {
     slug: "government",
     name: "Government Jobs",
-    emoji: "🏛️",
+    icon: "landmark",
     description: "SSC, Railways, Indian Post and Agniveer recruitment after Plus Two.",
   },
   {
     slug: "central-university",
     name: "Central University Admissions",
-    emoji: "🎓",
+    icon: "graduation-cap",
     description: "Undergraduate admission to central universities through CUET UG.",
   },
 ];
@@ -90,7 +92,7 @@ export const streams: Stream[] = [
     slug: "mbbs-bds-ayush",
     name: "MBBS / BDS / AYUSH",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary:
       "NEET UG is the single national entrance exam for MBBS, BDS, BAMS, BHMS and BUMS admissions.",
     eligibility: "Passed Plus Two with Physics, Chemistry, Biology/Biotechnology.",
@@ -110,7 +112,7 @@ export const streams: Stream[] = [
     slug: "nursing",
     name: "Nursing",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Entry through NEET along with state and institutional nursing admissions.",
     eligibility: "Passed Plus Two with Science, subject to institute-specific norms.",
     exams: ["NEET", "State Nursing Admissions", "Institutional Admissions"],
@@ -127,7 +129,7 @@ export const streams: Stream[] = [
     slug: "pharmacy",
     name: "Pharmacy",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "KEAM and other state entrance exams lead to B.Pharm admissions.",
     exams: ["KEAM", "State Entrance Exams"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
@@ -137,7 +139,7 @@ export const streams: Stream[] = [
     slug: "allied-health-radiology",
     name: "Allied Health — Radiology",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Diagnostic imaging technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -148,7 +150,7 @@ export const streams: Stream[] = [
     slug: "allied-health-mlt",
     name: "Allied Health — MLT (Medical Lab Technology)",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Medical Laboratory Technology diploma/degree under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -159,7 +161,7 @@ export const streams: Stream[] = [
     slug: "allied-health-cardiac-care",
     name: "Allied Health — Cardiac Care Technology",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Cardiac care technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -170,7 +172,7 @@ export const streams: Stream[] = [
     slug: "allied-health-optometry",
     name: "Allied Health — Optometry",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Optometry course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -181,7 +183,7 @@ export const streams: Stream[] = [
     slug: "allied-health-dialysis",
     name: "Allied Health — Dialysis Technology",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Dialysis technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -192,7 +194,7 @@ export const streams: Stream[] = [
     slug: "allied-health-ot-technology",
     name: "Allied Health — Operation Theatre Technology",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Operation Theatre technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -203,7 +205,7 @@ export const streams: Stream[] = [
     slug: "allied-health-physiotherapy",
     name: "Allied Health — Physiotherapy",
     category: "Medical & Health Sciences",
-    categoryEmoji: "🩺",
+    categoryIcon: "stethoscope",
     summary: "Physiotherapy course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -214,7 +216,7 @@ export const streams: Stream[] = [
     slug: "btech",
     name: "BTech / BE",
     category: "Engineering & Technology",
-    categoryEmoji: "⚙️",
+    categoryIcon: "gear",
     summary: "JEE Main, JEE Advanced and KEAM are the gateways to engineering admissions.",
     eligibility: "Passed Plus Two with Physics, Chemistry, Mathematics.",
     exams: ["JEE Main", "JEE Advanced", "KEAM"],
@@ -235,7 +237,7 @@ export const streams: Stream[] = [
     slug: "commerce-management",
     name: "BCom / BBA / Integrated Programmes",
     category: "Commerce & Management",
-    categoryEmoji: "💼",
+    categoryIcon: "briefcase",
     summary: "CUET UG and management aptitude tests open the door to commerce degrees.",
     exams: ["CUET UG", "IPMAT", "SET", "Christ Entrance Test"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Email ID"],
@@ -245,7 +247,7 @@ export const streams: Stream[] = [
     slug: "llb",
     name: "LLB (Integrated)",
     category: "Law",
-    categoryEmoji: "⚖️",
+    categoryIcon: "scale-balanced",
     summary: "CLAT, AILET and KLEE lead to 5-year integrated law programmes.",
     exams: ["CLAT", "AILET", "KLEE"],
     documents: ["Aadhaar", "Plus Two Certificate", "Photo", "Signature"],
@@ -259,7 +261,7 @@ export const streams: Stream[] = [
     slug: "pilot",
     name: "Pilot",
     category: "Aviation",
-    categoryEmoji: "🛩️",
+    categoryIcon: "plane",
     summary: "Commercial pilot training regulated by DGCA, ending in a CPL.",
     eligibility: "Passed Plus Two with Physics and Mathematics; medical fitness required.",
     exams: ["DGCA Examinations", "CPL Requirements"],
@@ -275,7 +277,7 @@ export const streams: Stream[] = [
     slug: "defence",
     name: "Army / Navy / Air Force",
     category: "Defence",
-    categoryEmoji: "🛡️",
+    categoryIcon: "shield-halved",
     summary: "NDA, Agniveer and AFCAT are the main entry routes into the armed forces.",
     exams: ["NDA", "Agniveer", "AFCAT"],
     documents: [
@@ -294,7 +296,7 @@ export const streams: Stream[] = [
     slug: "teaching",
     name: "Teaching",
     category: "Teaching",
-    categoryEmoji: "👨‍🏫",
+    categoryIcon: "chalkboard-user",
     summary: "CUET and integrated B.Ed admissions lead into teaching, backed by KTET/CTET eligibility tests.",
     exams: ["CUET", "Integrated B.Ed Admissions", "KTET", "CTET"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
@@ -308,7 +310,7 @@ export const streams: Stream[] = [
     slug: "government-jobs",
     name: "Government Jobs (After Plus Two)",
     category: "Government Jobs",
-    categoryEmoji: "🏛️",
+    categoryIcon: "landmark",
     summary: "SSC, Railways, Indian Post and Agniveer recruitment open directly after Plus Two.",
     exams: ["SSC CHSL", "SSC MTS", "Railway Recruitment", "Indian Post", "Agniveer"],
     documents: ["Aadhaar", "Photo", "Signature", "Educational Certificates"],
@@ -322,7 +324,7 @@ export const streams: Stream[] = [
     slug: "cuet",
     name: "Central University Admissions",
     category: "Central University Admissions",
-    categoryEmoji: "🎓",
+    categoryIcon: "graduation-cap",
     summary: "CUET UG is the single common entrance test for undergraduate admission to central universities.",
     exams: ["CUET UG"],
     documents: [
@@ -348,24 +350,28 @@ export function getStreamsByCategory(categorySlug: string) {
 
 export type CareerGoal = {
   goal: string;
-  emoji: string;
+  icon: IconName;
   streamSlug: string;
 };
 
 export const careerGoals: CareerGoal[] = [
-  { goal: "Doctor", emoji: "🩺", streamSlug: "mbbs-bds-ayush" },
-  { goal: "Dentist", emoji: "🦷", streamSlug: "mbbs-bds-ayush" },
-  { goal: "Nurse", emoji: "💉", streamSlug: "nursing" },
-  { goal: "Pharmacist", emoji: "💊", streamSlug: "pharmacy" },
-  { goal: "Physiotherapist", emoji: "🧑‍⚕️", streamSlug: "allied-health-physiotherapy" },
-  { goal: "Engineer", emoji: "⚙️", streamSlug: "btech" },
-  { goal: "Business Professional", emoji: "💼", streamSlug: "commerce-management" },
-  { goal: "Lawyer", emoji: "⚖️", streamSlug: "llb" },
-  { goal: "Pilot", emoji: "🛩️", streamSlug: "pilot" },
-  { goal: "Defence Officer", emoji: "🛡️", streamSlug: "defence" },
-  { goal: "Teacher", emoji: "👨‍🏫", streamSlug: "teaching" },
-  { goal: "Government Employee", emoji: "🏛️", streamSlug: "government-jobs" },
-  { goal: "Central University Aspirant", emoji: "🎓", streamSlug: "cuet" },
+  { goal: "Doctor", icon: "stethoscope", streamSlug: "mbbs-bds-ayush" },
+  { goal: "Dentist", icon: "tooth", streamSlug: "mbbs-bds-ayush" },
+  { goal: "Nurse", icon: "syringe", streamSlug: "nursing" },
+  { goal: "Pharmacist", icon: "pills", streamSlug: "pharmacy" },
+  {
+    goal: "Physiotherapist",
+    icon: "hand-holding-medical",
+    streamSlug: "allied-health-physiotherapy",
+  },
+  { goal: "Engineer", icon: "gear", streamSlug: "btech" },
+  { goal: "Business Professional", icon: "briefcase", streamSlug: "commerce-management" },
+  { goal: "Lawyer", icon: "scale-balanced", streamSlug: "llb" },
+  { goal: "Pilot", icon: "plane", streamSlug: "pilot" },
+  { goal: "Defence Officer", icon: "shield-halved", streamSlug: "defence" },
+  { goal: "Teacher", icon: "chalkboard-user", streamSlug: "teaching" },
+  { goal: "Government Employee", icon: "landmark", streamSlug: "government-jobs" },
+  { goal: "Central University Aspirant", icon: "graduation-cap", streamSlug: "cuet" },
 ];
 
 export type FeaturedExam = {

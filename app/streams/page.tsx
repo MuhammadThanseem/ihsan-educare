@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { categories, getStreamsByCategory } from "@/lib/data";
 import StreamCard from "@/components/StreamCard";
 import Reveal from "@/components/Reveal";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Career Streams — IHSAN EDUCARE",
@@ -35,8 +36,8 @@ export default function StreamsPage() {
             <section key={category.slug} id={category.slug} className="scroll-mt-24">
               <Reveal>
                 <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-xl">
-                    {category.emoji}
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-lg text-brand-700">
+                    <Icon name={category.icon} />
                   </span>
                   <div>
                     <h2 className="font-display text-xl font-semibold text-brand-950">

@@ -1,8 +1,10 @@
 import { aboutContent } from "@/lib/data";
+import Icon from "./Icon";
+import type { IconName } from "@/lib/icons";
 
-const cards = [
-  { emoji: "💡", ...aboutContent.whatIs },
-  { emoji: "🎯", ...aboutContent.why },
+const cards: { icon: IconName; heading: { en: string }; body: { ml: string; en: string } }[] = [
+  { icon: "lightbulb", ...aboutContent.whatIs },
+  { icon: "bullseye", ...aboutContent.why },
 ];
 
 export default function AboutSection() {
@@ -22,8 +24,8 @@ export default function AboutSection() {
             key={card.heading.en}
             className="rounded-[2rem] border border-brand-900/8 bg-white p-8 shadow-sm"
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-xl">
-              {card.emoji}
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-lg text-brand-700">
+              <Icon name={card.icon} />
             </span>
             <h3 className="mt-4 font-display text-lg font-semibold text-brand-950">
               {card.heading.en}

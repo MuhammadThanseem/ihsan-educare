@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CategoryGroup, Stream } from "@/lib/data";
+import Icon from "./Icon";
 
 export default function FeaturedCategoryCard({
   category,
@@ -21,8 +22,9 @@ export default function FeaturedCategoryCard({
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
           Most explored
         </span>
-        <h3 className="mt-3 font-display text-2xl font-semibold text-sand-50 sm:text-3xl">
-          {category.emoji} {category.name}
+        <h3 className="mt-3 flex items-center gap-3 font-display text-2xl font-semibold text-sand-50 sm:text-3xl">
+          <Icon name={category.icon} className="text-2xl text-gold-400" />
+          {category.name}
         </h3>
         <p className="mt-3 max-w-md text-brand-100/70">{category.description}</p>
         <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-300">

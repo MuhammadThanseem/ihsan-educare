@@ -21,22 +21,24 @@ import MemorialSection from "@/components/MemorialSection";
 import FeaturedExams from "@/components/FeaturedExams";
 import ScholarshipUpdates from "@/components/ScholarshipUpdates";
 import NotificationsWidget from "@/components/NotificationsWidget";
+import Icon from "@/components/Icon";
+import type { IconName } from "@/lib/icons";
 
-const values = [
+const values: { icon: IconName; title: string; description: string }[] = [
   {
-    emoji: "📚",
+    icon: "book-open",
     title: "Every stream, one place",
     description:
       "Medical, Engineering, Law, Aviation, Defence, Teaching and more — no more scattered tabs.",
   },
   {
-    emoji: "✅",
+    icon: "circle-check",
     title: "Exams, documents, websites",
     description:
       "Each stream lists the entrance exam, the paperwork you'll need and where to apply.",
   },
   {
-    emoji: "🇮🇳",
+    icon: "flag",
     title: "Built for Kerala students",
     description: "Covers both national exams and Kerala-specific admissions.",
   },
@@ -76,8 +78,9 @@ export default function Home() {
               {orgLine}
             </p>
           </div>
-          <p className="max-w-2xl font-display text-xl text-brand-900/80 sm:text-2xl">
-            🎓 +2 കഴിഞ്ഞാൽ എന്ത്?
+          <p className="flex items-center gap-2.5 font-display text-xl text-brand-900/80 sm:text-2xl">
+            <Icon name="graduation-cap" className="text-xl text-gold-500" />
+            +2 കഴിഞ്ഞാൽ എന്ത്?
           </p>
           <p className="max-w-xl text-base leading-relaxed text-brand-900/60">
             Every major entrance exam, application date, required document and
@@ -87,9 +90,10 @@ export default function Home() {
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/career-finder"
-              className="rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md shadow-brand-900/20 transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg"
+              className="flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md shadow-brand-900/20 transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg"
             >
-              🤖 Find My Career Path →
+              <Icon name="robot" />
+              Find My Career Path →
             </Link>
             <Link
               href="/streams"
@@ -108,7 +112,7 @@ export default function Home() {
         </Reveal>
       </Band>
 
-      <Marquee items={careerGoals.map((g) => `${g.emoji} ${g.goal}`)} />
+      <Marquee items={careerGoals.map((g) => ({ icon: g.icon, label: g.goal }))} />
 
       {/* Quick access + Career Finder promo + Value props */}
       <Band bg="sand" className="flex flex-col gap-16">
@@ -120,7 +124,8 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-[2rem] border border-brand-900/8 bg-white p-8 shadow-sm sm:p-12 lg:flex lg:items-center lg:gap-12">
             <div className="lg:flex-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
-                🤖 Flagship Feature
+                <Icon name="robot" />
+                Flagship Feature
               </span>
               <h2 className="mt-4 font-display text-3xl font-semibold text-brand-950 sm:text-4xl">
                 &ldquo;I want to become a Doctor&rdquo;
@@ -138,17 +143,19 @@ export default function Home() {
               </Link>
             </div>
             <div className="mt-10 grid flex-1 grid-cols-2 gap-3 lg:mt-0">
-              {[
-                { emoji: "🎯", label: "Entrance Exam" },
-                { emoji: "📋", label: "Documents" },
-                { emoji: "🔗", label: "Official Website" },
-                { emoji: "🧭", label: "Counselling Info" },
-              ].map((item) => (
+              {(
+                [
+                  { icon: "bullseye", label: "Entrance Exam" },
+                  { icon: "clipboard-list", label: "Documents" },
+                  { icon: "link", label: "Official Website" },
+                  { icon: "compass", label: "Counselling Info" },
+                ] as { icon: IconName; label: string }[]
+              ).map((item) => (
                 <div
                   key={item.label}
                   className="flex flex-col items-center gap-2 rounded-2xl bg-brand-50/60 p-5 text-center"
                 >
-                  <span className="text-2xl">{item.emoji}</span>
+                  <Icon name={item.icon} className="text-2xl text-brand-700" />
                   <span className="text-xs font-semibold text-brand-800">
                     {item.label}
                   </span>
@@ -162,8 +169,8 @@ export default function Home() {
           {values.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.08}>
               <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-100 text-2xl">
-                  {v.emoji}
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-100 text-xl text-brand-700">
+                  <Icon name={v.icon} />
                 </span>
                 <h3 className="mt-4 font-display text-lg font-semibold text-brand-950">
                   {v.title}

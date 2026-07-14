@@ -1,12 +1,14 @@
 import Link from "next/link";
+import Icon from "./Icon";
+import type { IconName } from "@/lib/icons";
 
-const items = [
-  { href: "/career-finder", label: "Career Finder", emoji: "🤖" },
-  { href: "/streams", label: "Streams", emoji: "📚" },
-  { href: "#exams", label: "Entrance Exams", emoji: "🎯" },
-  { href: "#scholarships", label: "Scholarships", emoji: "💰" },
-  { href: "#notifications", label: "Notifications", emoji: "🔔" },
-  { href: "/contact", label: "Contact", emoji: "📞" },
+const items: { href: string; label: string; icon: IconName }[] = [
+  { href: "/career-finder", label: "Career Finder", icon: "robot" },
+  { href: "/streams", label: "Streams", icon: "book-open" },
+  { href: "#exams", label: "Entrance Exams", icon: "bullseye" },
+  { href: "#scholarships", label: "Scholarships", icon: "sack-dollar" },
+  { href: "#notifications", label: "Notifications", icon: "bell" },
+  { href: "/contact", label: "Contact", icon: "phone" },
 ];
 
 export default function QuickAccess() {
@@ -18,7 +20,7 @@ export default function QuickAccess() {
           href={item.href}
           className="flex items-center gap-2 rounded-full border border-brand-900/10 bg-white px-4 py-2.5 text-sm font-medium text-brand-900 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-300 hover:shadow-md"
         >
-          <span>{item.emoji}</span>
+          <Icon name={item.icon} className="text-brand-700" />
           {item.label}
         </Link>
       ))}

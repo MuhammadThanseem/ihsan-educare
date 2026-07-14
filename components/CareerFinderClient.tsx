@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { careerGoals, getStreamBySlug } from "@/lib/data";
+import Icon from "./Icon";
 
 export default function CareerFinderClient() {
   const [selectedGoal, setSelectedGoal] = useState(careerGoals[0].goal);
@@ -31,7 +32,7 @@ export default function CareerFinderClient() {
                     : "border-brand-900/15 bg-white text-brand-900/70 hover:border-gold-400 hover:text-brand-900 lg:bg-transparent lg:hover:bg-brand-50"
                 }`}
               >
-                <span>{g.emoji}</span>
+                <Icon name={g.icon} />
                 {g.goal}
                 {active && (
                   <span className="ml-auto hidden text-gold-300 lg:inline">→</span>
@@ -54,9 +55,9 @@ export default function CareerFinderClient() {
               className="rounded-3xl border border-brand-900/8 bg-white p-6 shadow-sm sm:p-8"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-brand-900/8 pb-5">
-                <h3 className="font-display text-2xl font-semibold text-brand-950">
-                  {goal.emoji} {goal.goal}{" "}
-                  <span className="text-gold-500">→</span> {stream.name}
+                <h3 className="flex flex-wrap items-center gap-2 font-display text-2xl font-semibold text-brand-950">
+                  <Icon name={goal.icon} className="text-xl text-brand-700" />
+                  {goal.goal} <span className="text-gold-500">→</span> {stream.name}
                 </h3>
                 <Link
                   href={`/streams/${stream.slug}`}

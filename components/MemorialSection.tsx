@@ -1,4 +1,5 @@
 import { memorial } from "@/lib/data";
+import Icon from "./Icon";
 
 export default function MemorialSection() {
   return (
@@ -8,9 +9,7 @@ export default function MemorialSection() {
         className="pointer-events-none absolute -top-20 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-gold-500/15 blur-3xl"
       />
       <div className="relative">
-        <span className="text-2xl text-gold-400" aria-hidden>
-          ♥
-        </span>
+        <Icon name="heart" className="text-2xl text-gold-400" />
         <p className="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold-300">
           In Loving Memory Of
         </p>

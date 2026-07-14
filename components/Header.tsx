@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
+import Icon from "./Icon";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -57,9 +58,10 @@ export default function Header() {
           })}
           <Link
             href="/career-finder"
-            className="ml-3 flex items-center gap-1.5 rounded-full bg-brand-900 px-5 py-2 text-sm font-semibold text-sand-50 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/20"
+            className="ml-3 flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2 text-sm font-semibold text-sand-50 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/20"
           >
-            🤖 Career Finder
+            <Icon name="robot" />
+            Career Finder
           </Link>
         </nav>
 
@@ -116,9 +118,10 @@ export default function Header() {
           <Link
             href="/career-finder"
             onClick={() => setOpen(false)}
-            className="mt-1 rounded-lg bg-brand-900 px-3 py-2 text-sm font-semibold text-sand-50"
+            className="mt-1 flex items-center gap-2 rounded-lg bg-brand-900 px-3 py-2 text-sm font-semibold text-sand-50"
           >
-            🤖 Career Finder
+            <Icon name="robot" />
+            Career Finder
           </Link>
         </nav>
       )}

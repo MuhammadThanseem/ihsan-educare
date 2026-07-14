@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import Icon from "./Icon";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,7 +16,7 @@ export default function ContactForm() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-2xl border border-gold-300/50 bg-gold-50 p-8 text-center"
         >
-          <span className="text-3xl">✅</span>
+          <Icon name="circle-check" className="text-3xl text-brand-700" />
           <p className="mt-3 font-medium text-brand-950">
             Thanks for reaching out — our team will get back to you soon.
           </p>

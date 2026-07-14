@@ -1,4 +1,11 @@
-export default function Marquee({ items }: { items: string[] }) {
+import Icon from "./Icon";
+import type { IconName } from "@/lib/icons";
+
+export default function Marquee({
+  items,
+}: {
+  items: { icon: IconName; label: string }[];
+}) {
   const track = [...items, ...items];
   return (
     <div
@@ -11,8 +18,11 @@ export default function Marquee({ items }: { items: string[] }) {
             key={i}
             className="flex items-center gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.2em] text-sand-100/60"
           >
-            {item}
-            <span className="text-gold-500">✦</span>
+            <span className="inline-flex items-center gap-2">
+              <Icon name={item.icon} className="text-gold-400" />
+              {item.label}
+            </span>
+            <span className="text-gold-500">•</span>
           </span>
         ))}
       </div>
