@@ -3,24 +3,70 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { careerGoals, getStreamBySlug } from "@/lib/data";
+import {
+  careerGoals,
+  getStreamBySlug,
+  plusTwoStreams,
+  type PlusTwoStreamSlug,
+} from "@/lib/data";
 import Icon from "./Icon";
 
 export default function CareerFinderClient() {
+  const [ptFilter, setPtFilter] = useState<PlusTwoStreamSlug | "all">("all");
   const [selectedGoal, setSelectedGoal] = useState(careerGoals[0].goal);
 
-  const goal = careerGoals.find((g) => g.goal === selectedGoal) ?? careerGoals[0];
+  const filteredGoals =
+    ptFilter === "all"
+      ? careerGoals
+      : careerGoals.filter((g) =>
+          getStreamBySlug(g.streamSlug)?.plusTwoStreams.includes(ptFilter)
+        );
+
+  const goal =
+    filteredGoals.find((g) => g.goal === selectedGoal) ?? filteredGoals[0] ?? careerGoals[0];
   const stream = getStreamBySlug(goal.streamSlug);
 
   return (
     <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
       <div className="lg:sticky lg:top-24 lg:w-80 lg:shrink-0">
-        <h2 className="font-display text-lg font-semibold text-brand-950">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+          Filter by Plus Two Stream
+        </h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setPtFilter("all")}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+              ptFilter === "all"
+                ? "border-brand-900 bg-brand-900 text-sand-50"
+                : "border-brand-900/15 bg-white text-brand-900/70 hover:border-gold-400"
+            }`}
+          >
+            All
+          </button>
+          {plusTwoStreams.map((s) => (
+            <button
+              key={s.slug}
+              type="button"
+              onClick={() => setPtFilter(s.slug)}
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+                ptFilter === s.slug
+                  ? "border-brand-900 bg-brand-900 text-sand-50"
+                  : "border-brand-900/15 bg-white text-brand-900/70 hover:border-gold-400"
+              }`}
+            >
+              <Icon name={s.icon} />
+              {s.name}
+            </button>
+          ))}
+        </div>
+
+        <h2 className="mt-6 font-display text-lg font-semibold text-brand-950">
           I want to become a...
         </h2>
         <div className="mt-4 flex flex-wrap gap-2 lg:flex-col lg:flex-nowrap lg:gap-1.5">
-          {careerGoals.map((g) => {
-            const active = g.goal === selectedGoal;
+          {filteredGoals.map((g) => {
+            const active = g.goal === goal.goal;
             return (
               <button
                 key={g.goal}

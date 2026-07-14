@@ -27,6 +27,10 @@ import {
   faRocket,
   faPhone,
   faHeart,
+  faFlask,
+  faChartLine,
+  faFeatherPointed,
+  faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const icons = {
@@ -58,6 +62,10 @@ export const icons = {
   rocket: faRocket,
   phone: faPhone,
   heart: faHeart,
+  flask: faFlask,
+  "chart-line": faChartLine,
+  "feather-pointed": faFeatherPointed,
+  "layer-group": faLayerGroup,
 };
 
 export type IconName = keyof typeof icons;

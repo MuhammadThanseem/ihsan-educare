@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Icon from "./Icon";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -56,13 +57,15 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link
-            href="/career-finder"
-            className="ml-3 flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2 text-sm font-semibold text-sand-50 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/20"
-          >
-            <Icon name="robot" />
-            Career Finder
-          </Link>
+          <MagneticButton className="ml-3">
+            <Link
+              href="/career-finder"
+              className="flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2 text-sm font-semibold text-sand-50 shadow-sm transition-all hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/20"
+            >
+              <Icon name="robot" />
+              Career Finder
+            </Link>
+          </MagneticButton>
         </nav>
 
         <button

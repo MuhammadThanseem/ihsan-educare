@@ -11,7 +11,7 @@ export default function Logo({
   return (
     <Link href="/" className="flex shrink-0 items-center gap-3">
       <Image
-        src="/IMG_0317.PNG"
+        src="/Logo.png"
         alt="IHSAN EDUCARE logo"
         width={44}
         height={44}

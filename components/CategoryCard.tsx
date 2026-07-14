@@ -1,13 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "motion/react";
 import type { CategoryGroup } from "@/lib/data";
 import Icon from "./Icon";
+import TiltCard from "./TiltCard";
 
 export default function CategoryCard({ category }: { category: CategoryGroup }) {
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+    <TiltCard>
       <Link
         href={`/streams#${category.slug}`}
         className="group flex h-full flex-col items-start rounded-2xl border border-brand-900/8 bg-white p-6 shadow-sm transition-all hover:border-gold-300 hover:shadow-xl hover:shadow-brand-900/5"
@@ -25,6 +23,6 @@ export default function CategoryCard({ category }: { category: CategoryGroup }) 
           Explore <span aria-hidden>→</span>
         </span>
       </Link>
-    </motion.div>
+    </TiltCard>
   );
 }

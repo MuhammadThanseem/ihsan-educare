@@ -1,13 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "motion/react";
 import type { Stream } from "@/lib/data";
 import Icon from "./Icon";
+import TiltCard from "./TiltCard";
 
 export default function StreamCard({ stream }: { stream: Stream }) {
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }} className="h-full">
+    <TiltCard>
       <Link
         href={`/streams/${stream.slug}`}
         className="group flex h-full flex-col rounded-2xl border border-brand-900/8 bg-white p-6 shadow-sm transition-all hover:border-gold-300 hover:shadow-xl hover:shadow-brand-900/5"
@@ -30,6 +28,6 @@ export default function StreamCard({ stream }: { stream: Stream }) {
           ))}
         </div>
       </Link>
-    </motion.div>
+    </TiltCard>
   );
 }

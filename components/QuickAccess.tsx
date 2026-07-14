@@ -6,8 +6,7 @@ const items: { href: string; label: string; icon: IconName }[] = [
   { href: "/career-finder", label: "Career Finder", icon: "robot" },
   { href: "/streams", label: "Streams", icon: "book-open" },
   { href: "#exams", label: "Entrance Exams", icon: "bullseye" },
-  { href: "#scholarships", label: "Scholarships", icon: "sack-dollar" },
-  { href: "#notifications", label: "Notifications", icon: "bell" },
+  { href: "#plus-two", label: "Plus Two Stream", icon: "flask" },
   { href: "/contact", label: "Contact", icon: "phone" },
 ];
 

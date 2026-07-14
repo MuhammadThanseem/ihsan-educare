@@ -19,10 +19,12 @@ import GoalsSection from "@/components/GoalsSection";
 import QuoteBanner from "@/components/QuoteBanner";
 import MemorialSection from "@/components/MemorialSection";
 import FeaturedExams from "@/components/FeaturedExams";
-import ScholarshipUpdates from "@/components/ScholarshipUpdates";
-import NotificationsWidget from "@/components/NotificationsWidget";
+import PlusTwoStreamSection from "@/components/PlusTwoStreamSection";
 import Icon from "@/components/Icon";
 import type { IconName } from "@/lib/icons";
+import SplitHeading from "@/components/SplitHeading";
+import MagneticButton from "@/components/MagneticButton";
+import SectionNav from "@/components/SectionNav";
 
 const values: { icon: IconName; title: string; description: string }[] = [
   {
@@ -51,15 +53,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      <SectionNav />
+
       {/* Hero */}
-      <section className="bg-grain relative overflow-hidden bg-sand-50">
+      <section id="hero-top" className="bg-grain relative scroll-mt-24 overflow-hidden bg-sand-50">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(ellipse_at_top,_var(--color-brand-100)_0%,_transparent_65%),radial-gradient(ellipse_at_60%_10%,_var(--color-gold-100)_0%,_transparent_50%)]"
         />
         <HeroIntro>
           <Image
-            src="/IMG_0317.PNG"
+            src="/Logo.png"
             alt="IHSAN EDUCARE logo"
             width={88}
             height={88}
@@ -71,7 +75,7 @@ export default function Home() {
           </p>
           <div>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-brand-950 sm:text-6xl lg:text-7xl">
-              IHSAN EDUCARE
+              <SplitHeading text="IHSAN EDUCARE" delay={0.3} />
             </h1>
             <div className="mx-auto mt-5 h-px w-16 bg-gold-400" />
             <p className="mt-4 max-w-md text-sm font-medium tracking-wide text-gold-600 sm:text-base">
@@ -88,25 +92,29 @@ export default function Home() {
             place.
           </p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/career-finder"
-              className="flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md shadow-brand-900/20 transition-all hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lg"
-            >
-              <Icon name="robot" />
-              Find My Career Path →
-            </Link>
-            <Link
-              href="/streams"
-              className="rounded-full border border-brand-900/25 px-7 py-3.5 text-sm font-semibold text-brand-900 transition-all hover:-translate-y-0.5 hover:border-brand-900/50 hover:bg-brand-50"
-            >
-              Browse Career Streams
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/career-finder"
+                className="flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md shadow-brand-900/20 transition-shadow hover:shadow-lg"
+              >
+                <Icon name="robot" />
+                Find My Career Path →
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/streams"
+                className="block rounded-full border border-brand-900/25 px-7 py-3.5 text-sm font-semibold text-brand-900 transition-colors hover:border-brand-900/50 hover:bg-brand-50"
+              >
+                Browse Career Streams
+              </Link>
+            </MagneticButton>
           </div>
         </HeroIntro>
       </section>
 
       {/* In loving memory */}
-      <Band bg="white">
+      <Band bg="white" id="memory">
         <Reveal>
           <MemorialSection />
         </Reveal>
@@ -115,7 +123,7 @@ export default function Home() {
       <Marquee items={careerGoals.map((g) => ({ icon: g.icon, label: g.goal }))} />
 
       {/* Quick access + Career Finder promo + Value props */}
-      <Band bg="sand" className="flex flex-col gap-16">
+      <Band bg="sand" id="flagship" className="flex flex-col gap-16">
         <Reveal>
           <QuickAccess />
         </Reveal>
@@ -135,12 +143,14 @@ export default function Home() {
                 exam, required documents, official website and counselling
                 process — all on a single page.
               </p>
-              <Link
-                href="/career-finder"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md transition-all hover:-translate-y-0.5 hover:bg-brand-800"
-              >
-                Find My Career Path →
-              </Link>
+              <MagneticButton className="mt-7">
+                <Link
+                  href="/career-finder"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-sand-50 shadow-md transition-shadow hover:shadow-lg"
+                >
+                  Find My Career Path →
+                </Link>
+              </MagneticButton>
             </div>
             <div className="mt-10 grid flex-1 grid-cols-2 gap-3 lg:mt-0">
               {(
@@ -185,7 +195,7 @@ export default function Home() {
       </Band>
 
       {/* About + Who it's for */}
-      <Band bg="white" className="flex flex-col gap-16">
+      <Band bg="white" id="about" className="flex flex-col gap-16">
         <Reveal>
           <AboutSection />
         </Reveal>
@@ -194,8 +204,15 @@ export default function Home() {
         </Reveal>
       </Band>
 
+      {/* Browse by Plus Two Stream */}
+      <Band bg="gold" id="plus-two">
+        <Reveal>
+          <PlusTwoStreamSection />
+        </Reveal>
+      </Band>
+
       {/* Featured Entrance Exams + Category grid */}
-      <Band bg="sand" className="flex flex-col gap-16">
+      <Band bg="sand" id="streams" className="flex flex-col gap-16">
         <div id="exams" className="scroll-mt-24">
           <Reveal>
             <FeaturedExams />
@@ -232,22 +249,8 @@ export default function Home() {
         </div>
       </Band>
 
-      {/* Scholarship updates + Latest notifications */}
-      <Band bg="gold" className="flex flex-col gap-16">
-        <div id="scholarships" className="scroll-mt-24">
-          <Reveal>
-            <ScholarshipUpdates />
-          </Reveal>
-        </div>
-        <div id="notifications" className="scroll-mt-24">
-          <Reveal>
-            <NotificationsWidget />
-          </Reveal>
-        </div>
-      </Band>
-
       {/* Our goals + quote */}
-      <Band bg="white" className="flex flex-col gap-16">
+      <Band bg="gold" id="goals" className="flex flex-col gap-16">
         <Reveal>
           <GoalsSection />
         </Reveal>
@@ -269,12 +272,14 @@ export default function Home() {
                 your goals.
               </p>
             </div>
-            <Link
-              href="/contact"
-              className="shrink-0 rounded-full bg-brand-900 px-6 py-3 text-sm font-semibold text-sand-50 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-800"
-            >
-              Contact Us →
-            </Link>
+            <MagneticButton className="shrink-0">
+              <Link
+                href="/contact"
+                className="block rounded-full bg-brand-900 px-6 py-3 text-sm font-semibold text-sand-50 shadow-sm transition-shadow hover:shadow-md"
+              >
+                Contact Us →
+              </Link>
+            </MagneticButton>
           </div>
         </Reveal>
       </Band>
@@ -290,15 +295,17 @@ const bandBg = {
 
 function Band({
   bg,
+  id,
   className = "",
   children,
 }: {
   bg: keyof typeof bandBg;
+  id?: string;
   className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className={bandBg[bg]}>
+    <section id={id} className={`scroll-mt-24 ${bandBg[bg]}`}>
       <div className={`mx-auto max-w-6xl px-4 py-20 sm:px-6 ${className}`}>
         {children}
       </div>

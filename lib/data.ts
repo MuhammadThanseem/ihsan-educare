@@ -10,11 +10,47 @@ export type OfficialLink = {
   url: string;
 };
 
+export type PlusTwoStreamSlug = "science" | "commerce" | "humanities";
+
+export type PlusTwoStream = {
+  slug: PlusTwoStreamSlug;
+  name: string;
+  icon: IconName;
+  description: string;
+};
+
+// The three broad streams a student picks at Plus Two (Class 11-12) level.
+// Used to filter which career streams are realistically open to a student.
+export const plusTwoStreams: PlusTwoStream[] = [
+  {
+    slug: "science",
+    name: "Science",
+    icon: "flask",
+    description:
+      "Physics, Chemistry, Maths/Biology — opens the door to Medical, Engineering, Aviation and Allied Health, plus every stream-agnostic path.",
+  },
+  {
+    slug: "commerce",
+    name: "Commerce",
+    icon: "chart-line",
+    description:
+      "Accountancy, Business Studies, Economics — leads naturally into Commerce & Management, plus every stream-agnostic path.",
+  },
+  {
+    slug: "humanities",
+    name: "Humanities",
+    icon: "feather-pointed",
+    description:
+      "History, Political Science, Literature and more — a strong base for Law, Teaching, Government Jobs and Central University courses.",
+  },
+];
+
 export type Stream = {
   slug: string;
   name: string;
   category: string;
   categoryIcon: IconName;
+  plusTwoStreams: PlusTwoStreamSlug[];
   summary: string;
   eligibility?: string;
   exams: string[];
@@ -93,6 +129,7 @@ export const streams: Stream[] = [
     name: "MBBS / BDS / AYUSH",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary:
       "NEET UG is the single national entrance exam for MBBS, BDS, BAMS, BHMS and BUMS admissions.",
     eligibility: "Passed Plus Two with Physics, Chemistry, Biology/Biotechnology.",
@@ -113,6 +150,7 @@ export const streams: Stream[] = [
     name: "Nursing",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Entry through NEET along with state and institutional nursing admissions.",
     eligibility: "Passed Plus Two with Science, subject to institute-specific norms.",
     exams: ["NEET", "State Nursing Admissions", "Institutional Admissions"],
@@ -130,6 +168,7 @@ export const streams: Stream[] = [
     name: "Pharmacy",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "KEAM and other state entrance exams lead to B.Pharm admissions.",
     exams: ["KEAM", "State Entrance Exams"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
@@ -140,6 +179,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Radiology",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Diagnostic imaging technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -151,6 +191,7 @@ export const streams: Stream[] = [
     name: "Allied Health — MLT (Medical Lab Technology)",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Medical Laboratory Technology diploma/degree under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -162,6 +203,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Cardiac Care Technology",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Cardiac care technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -173,6 +215,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Optometry",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Optometry course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -184,6 +227,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Dialysis Technology",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Dialysis technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -195,6 +239,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Operation Theatre Technology",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Operation Theatre technology course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -206,6 +251,7 @@ export const streams: Stream[] = [
     name: "Allied Health — Physiotherapy",
     category: "Medical & Health Sciences",
     categoryIcon: "stethoscope",
+    plusTwoStreams: ["science"],
     summary: "Physiotherapy course under Allied Health Sciences.",
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
@@ -217,6 +263,7 @@ export const streams: Stream[] = [
     name: "BTech / BE",
     category: "Engineering & Technology",
     categoryIcon: "gear",
+    plusTwoStreams: ["science"],
     summary: "JEE Main, JEE Advanced and KEAM are the gateways to engineering admissions.",
     eligibility: "Passed Plus Two with Physics, Chemistry, Mathematics.",
     exams: ["JEE Main", "JEE Advanced", "KEAM"],
@@ -238,6 +285,7 @@ export const streams: Stream[] = [
     name: "BCom / BBA / Integrated Programmes",
     category: "Commerce & Management",
     categoryIcon: "briefcase",
+    plusTwoStreams: ["commerce", "science"],
     summary: "CUET UG and management aptitude tests open the door to commerce degrees.",
     exams: ["CUET UG", "IPMAT", "SET", "Christ Entrance Test"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Email ID"],
@@ -248,6 +296,7 @@ export const streams: Stream[] = [
     name: "LLB (Integrated)",
     category: "Law",
     categoryIcon: "scale-balanced",
+    plusTwoStreams: ["science", "commerce", "humanities"],
     summary: "CLAT, AILET and KLEE lead to 5-year integrated law programmes.",
     exams: ["CLAT", "AILET", "KLEE"],
     documents: ["Aadhaar", "Plus Two Certificate", "Photo", "Signature"],
@@ -262,6 +311,7 @@ export const streams: Stream[] = [
     name: "Pilot",
     category: "Aviation",
     categoryIcon: "plane",
+    plusTwoStreams: ["science"],
     summary: "Commercial pilot training regulated by DGCA, ending in a CPL.",
     eligibility: "Passed Plus Two with Physics and Mathematics; medical fitness required.",
     exams: ["DGCA Examinations", "CPL Requirements"],
@@ -278,6 +328,7 @@ export const streams: Stream[] = [
     name: "Army / Navy / Air Force",
     category: "Defence",
     categoryIcon: "shield-halved",
+    plusTwoStreams: ["science", "commerce", "humanities"],
     summary: "NDA, Agniveer and AFCAT are the main entry routes into the armed forces.",
     exams: ["NDA", "Agniveer", "AFCAT"],
     documents: [
@@ -297,6 +348,7 @@ export const streams: Stream[] = [
     name: "Teaching",
     category: "Teaching",
     categoryIcon: "chalkboard-user",
+    plusTwoStreams: ["science", "commerce", "humanities"],
     summary: "CUET and integrated B.Ed admissions lead into teaching, backed by KTET/CTET eligibility tests.",
     exams: ["CUET", "Integrated B.Ed Admissions", "KTET", "CTET"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
@@ -311,6 +363,7 @@ export const streams: Stream[] = [
     name: "Government Jobs (After Plus Two)",
     category: "Government Jobs",
     categoryIcon: "landmark",
+    plusTwoStreams: ["science", "commerce", "humanities"],
     summary: "SSC, Railways, Indian Post and Agniveer recruitment open directly after Plus Two.",
     exams: ["SSC CHSL", "SSC MTS", "Railway Recruitment", "Indian Post", "Agniveer"],
     documents: ["Aadhaar", "Photo", "Signature", "Educational Certificates"],
@@ -325,6 +378,7 @@ export const streams: Stream[] = [
     name: "Central University Admissions",
     category: "Central University Admissions",
     categoryIcon: "graduation-cap",
+    plusTwoStreams: ["science", "commerce", "humanities"],
     summary: "CUET UG is the single common entrance test for undergraduate admission to central universities.",
     exams: ["CUET UG"],
     documents: [
@@ -346,6 +400,10 @@ export function getStreamsByCategory(categorySlug: string) {
   const category = categories.find((c) => c.slug === categorySlug);
   if (!category) return [];
   return streams.filter((s) => s.category === category.name);
+}
+
+export function getStreamsByPlusTwoStream(slug: PlusTwoStreamSlug) {
+  return streams.filter((s) => s.plusTwoStreams.includes(slug));
 }
 
 export type CareerGoal = {

@@ -17,7 +17,7 @@ export default function ContactPage() {
         <Reveal>
           <div className="lg:sticky lg:top-28">
             <Image
-              src="/IMG_0317.PNG"
+              src="/Logo.png"
               alt="IHSAN EDUCARE logo"
               width={64}
               height={64}
