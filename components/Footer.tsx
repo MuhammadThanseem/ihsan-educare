@@ -17,7 +17,7 @@ export default function Footer() {
       >
         IHSAN EDUCARE
       </span>
-      <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-14 sm:px-6 lg:pb-14">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>
             <Logo inverted />

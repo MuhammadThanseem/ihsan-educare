@@ -3,11 +3,15 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Icon from "./Icon";
+import { categories, getStreamsByCategory, scholarshipUpdates } from "@/lib/data";
+
+type EnquiryType = "general" | "course" | "scholarship";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [enquiryType, setEnquiryType] = useState<EnquiryType>("general");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,6 +28,8 @@ export default function ContactForm() {
         body: JSON.stringify({
           name: data.get("name"),
           contact: data.get("contact"),
+          enquiryType: data.get("enquiryType"),
+          topic: data.get("topic") ?? "",
           message: data.get("message"),
         }),
       });
@@ -90,6 +96,95 @@ export default function ContactForm() {
               className="mt-1.5 w-full rounded-lg border border-brand-900/15 bg-sand-50 px-3 py-2.5 text-sm text-brand-950 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-200"
             />
           </div>
+
+          <div>
+            <span className="text-sm font-medium text-brand-950">
+              What&apos;s this about?
+            </span>
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {(
+                [
+                  { value: "general", label: "General" },
+                  { value: "course", label: "Course" },
+                  { value: "scholarship", label: "Scholarship" },
+                ] as { value: EnquiryType; label: string }[]
+              ).map((option) => (
+                <label
+                  key={option.value}
+                  className={`flex cursor-pointer items-center justify-center rounded-lg border px-2 py-2 text-sm font-medium transition-colors ${
+                    enquiryType === option.value
+                      ? "border-gold-400 bg-gold-50 text-brand-950"
+                      : "border-brand-900/15 bg-sand-50 text-brand-900/60 hover:border-brand-900/25"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="enquiryType"
+                    value={option.value}
+                    checked={enquiryType === option.value}
+                    onChange={() => setEnquiryType(option.value)}
+                    className="sr-only"
+                  />
+                  {option.label}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {enquiryType === "course" && (
+            <div>
+              <label htmlFor="c-topic" className="text-sm font-medium text-brand-950">
+                Which course are you interested in?
+              </label>
+              <select
+                id="c-topic"
+                name="topic"
+                required
+                defaultValue=""
+                className="mt-1.5 w-full rounded-lg border border-brand-900/15 bg-sand-50 px-3 py-2.5 text-sm text-brand-950 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-200"
+              >
+                <option value="" disabled>
+                  Select a course
+                </option>
+                {categories.map((category) => (
+                  <optgroup key={category.slug} label={category.name}>
+                    {getStreamsByCategory(category.slug).map((stream) => (
+                      <option key={stream.slug} value={stream.name}>
+                        {stream.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+                <option value="Other">Other / Not sure</option>
+              </select>
+            </div>
+          )}
+
+          {enquiryType === "scholarship" && (
+            <div>
+              <label htmlFor="c-topic" className="text-sm font-medium text-brand-950">
+                Which scholarship are you asking about?
+              </label>
+              <select
+                id="c-topic"
+                name="topic"
+                required
+                defaultValue=""
+                className="mt-1.5 w-full rounded-lg border border-brand-900/15 bg-sand-50 px-3 py-2.5 text-sm text-brand-950 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-200"
+              >
+                <option value="" disabled>
+                  Select a scholarship
+                </option>
+                {scholarshipUpdates.map((scholarship) => (
+                  <option key={scholarship.name} value={scholarship.name}>
+                    {scholarship.name}
+                  </option>
+                ))}
+                <option value="Other">Other / Not sure</option>
+              </select>
+            </div>
+          )}
+
           <div>
             <label htmlFor="c-message" className="text-sm font-medium text-brand-950">
               Message

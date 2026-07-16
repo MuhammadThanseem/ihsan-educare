@@ -7,7 +7,14 @@ function doPost(e) {
     || SpreadsheetApp.getActiveSpreadsheet().insertSheet("Submissions");
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(["Submitted At", "Name", "Email / Phone", "Message"]);
+    sheet.appendRow([
+      "Submitted At",
+      "Name",
+      "Email / Phone",
+      "Enquiry Type",
+      "Course / Scholarship",
+      "Message",
+    ]);
   }
 
   var data = JSON.parse(e.postData.contents);
@@ -16,6 +23,8 @@ function doPost(e) {
     data.submittedAt || new Date().toISOString(),
     data.name || "",
     data.contact || "",
+    data.enquiryType || "general",
+    data.topic || "",
     data.message || "",
   ]);
 

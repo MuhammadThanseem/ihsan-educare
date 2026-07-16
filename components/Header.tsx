@@ -15,7 +15,6 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -67,67 +66,7 @@ export default function Header() {
             </Link>
           </MagneticButton>
         </nav>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-900/15 bg-sand-50/80 text-brand-900 lg:hidden"
-        >
-          <span className="sr-only">Menu</span>
-          {open ? (
-            <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-              <path
-                d="M4 7h16M4 12h16M4 17h16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          )}
-        </button>
       </div>
-
-      {open && (
-        <nav className="flex flex-col gap-1 border-t border-brand-900/10 bg-sand-50 px-4 py-3 lg:hidden">
-          {navLinks.map((link) => {
-            const active =
-              link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium ${
-                  active
-                    ? "bg-brand-900 text-sand-50"
-                    : "text-brand-800/80 hover:bg-brand-100"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/career-finder"
-            onClick={() => setOpen(false)}
-            className="mt-1 flex items-center gap-2 rounded-lg bg-brand-900 px-3 py-2 text-sm font-semibold text-sand-50"
-          >
-            <Icon name="robot" />
-            Career Finder
-          </Link>
-        </nav>
-      )}
     </header>
   );
 }

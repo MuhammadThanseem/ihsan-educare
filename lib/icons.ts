@@ -32,7 +32,9 @@ import {
   faFeatherPointed,
   faLayerGroup,
   faEnvelope,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export const icons = {
   stethoscope: faStethoscope,
@@ -68,6 +70,8 @@ export const icons = {
   "feather-pointed": faFeatherPointed,
   "layer-group": faLayerGroup,
   envelope: faEnvelope,
+  whatsapp: faWhatsapp,
+  house: faHouse,
 };
 
 export type IconName = keyof typeof icons;

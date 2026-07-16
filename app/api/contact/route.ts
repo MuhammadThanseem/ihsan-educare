@@ -17,6 +17,10 @@ export async function POST(request: Request) {
 
   const body = await request.json();
   const { name, contact, message } = body;
+  const enquiryType = body.enquiryType === "course" || body.enquiryType === "scholarship"
+    ? body.enquiryType
+    : "general";
+  const topic = typeof body.topic === "string" ? body.topic : "";
 
   if (
     typeof name !== "string" ||
@@ -32,6 +36,13 @@ export async function POST(request: Request) {
     );
   }
 
+  if (enquiryType !== "general" && !topic.trim()) {
+    return NextResponse.json(
+      { error: "Please select what the course or scholarship enquiry is about." },
+      { status: 400 },
+    );
+  }
+
   try {
     const sheetResponse = await fetch(webhookUrl, {
       method: "POST",
@@ -39,6 +50,8 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         name,
         contact,
+        enquiryType,
+        topic,
         message,
         submittedAt: new Date().toISOString(),
       }),

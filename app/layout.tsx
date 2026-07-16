@@ -5,6 +5,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import "./globals.css";
 
 config.autoAddCss = false;
@@ -40,6 +42,8 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppFloatingButton />
+        <MobileBottomNav />
       </body>
     </html>
   );

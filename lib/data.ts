@@ -530,7 +530,12 @@ export const contactPersons: ContactPerson[] = [
   { name: "Sinan", phone: "+91 94953 94413" },
   { name: "Aslah", phone: "+91 96058 19333" },
   { name: "Said", phone: "+91 97782 37032" },
+  { name: "Shafaf", phone: "+91 80898 40679" },
+  { name: "Shazil", phone: "+971 56 764 6015" },
 ];
+
+// Used for the site-wide floating WhatsApp button.
+export const whatsappNumber = "971567646015";
 
 export const heroTagline: Bilingual = {
   ml: "അറിവിലൂടെ അവസരങ്ങളിലേക്ക്",
