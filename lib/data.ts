@@ -1,7 +1,6 @@
-// Central content for IHSAN EDUCARE. Official website links are left as
-// placeholders ("#") — verify and fill in the exact current URLs before
-// launch, since government exam portals change often and a wrong link is
-// worse than no link.
+// Central content for IHSAN EDUCARE. Official website links point to
+// government/exam-authority portals — re-verify periodically, since these
+// change domains and URL structure more often than most sites.
 
 import type { IconName } from "./icons";
 
@@ -143,7 +142,7 @@ export const streams: Stream[] = [
       "Mobile Number",
       "Email ID",
     ],
-    officialWebsites: [{ label: "NEET UG Portal", url: "#" }],
+    officialWebsites: [{ label: "NEET UG Portal", url: "https://neet.nta.nic.in/" }],
   },
   {
     slug: "nursing",
@@ -161,7 +160,9 @@ export const streams: Stream[] = [
       "Photo",
       "Community Certificate (if applicable)",
     ],
-    officialWebsites: [{ label: "State Nursing Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "State Nursing Admissions (LBS Centre)", url: "https://lbscentre.kerala.gov.in/" },
+    ],
   },
   {
     slug: "pharmacy",
@@ -172,7 +173,7 @@ export const streams: Stream[] = [
     summary: "KEAM and other state entrance exams lead to B.Pharm admissions.",
     exams: ["KEAM", "State Entrance Exams"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "KEAM Portal", url: "#" }],
+    officialWebsites: [{ label: "KEAM Portal", url: "https://cee.kerala.gov.in/" }],
   },
   {
     slug: "allied-health-radiology",
@@ -184,7 +185,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-mlt",
@@ -196,7 +199,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-cardiac-care",
@@ -208,7 +213,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-optometry",
@@ -220,7 +227,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-dialysis",
@@ -232,7 +241,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-ot-technology",
@@ -244,7 +255,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "allied-health-physiotherapy",
@@ -256,7 +269,9 @@ export const streams: Stream[] = [
     eligibility: "Passed Plus Two with Science.",
     exams: ["Institutional / State Allied Health Admissions"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
-    officialWebsites: [{ label: "Allied Health Admissions", url: "#" }],
+    officialWebsites: [
+      { label: "Allied Health Admissions (DME Kerala)", url: "https://dme.kerala.gov.in/allied-health-sciencesl/" },
+    ],
   },
   {
     slug: "btech",
@@ -275,9 +290,9 @@ export const streams: Stream[] = [
       "Plus Two Details",
     ],
     officialWebsites: [
-      { label: "JEE Main", url: "#" },
-      { label: "JEE Advanced", url: "#" },
-      { label: "KEAM", url: "#" },
+      { label: "JEE Main", url: "https://jeemain.nta.nic.in/" },
+      { label: "JEE Advanced", url: "https://jeeadv.ac.in/" },
+      { label: "KEAM", url: "https://cee.kerala.gov.in/" },
     ],
   },
   {
@@ -289,7 +304,7 @@ export const streams: Stream[] = [
     summary: "CUET UG and management aptitude tests open the door to commerce degrees.",
     exams: ["CUET UG", "IPMAT", "SET", "Christ Entrance Test"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Email ID"],
-    officialWebsites: [{ label: "CUET Portal", url: "#" }],
+    officialWebsites: [{ label: "CUET Portal", url: "https://cuet.nta.nic.in/" }],
   },
   {
     slug: "llb",
@@ -301,9 +316,9 @@ export const streams: Stream[] = [
     exams: ["CLAT", "AILET", "KLEE"],
     documents: ["Aadhaar", "Plus Two Certificate", "Photo", "Signature"],
     officialWebsites: [
-      { label: "CLAT", url: "#" },
-      { label: "AILET", url: "#" },
-      { label: "KLEE", url: "#" },
+      { label: "CLAT", url: "https://consortiumofnlus.ac.in/" },
+      { label: "AILET", url: "https://nludelhi.ac.in/admission/ailet/" },
+      { label: "KLEE", url: "https://cee.kerala.gov.in/" },
     ],
   },
   {
@@ -321,7 +336,7 @@ export const streams: Stream[] = [
       "Medical Fitness Certificate",
       "Plus Two Science",
     ],
-    officialWebsites: [{ label: "DGCA", url: "#" }],
+    officialWebsites: [{ label: "DGCA", url: "https://www.dgca.gov.in/" }],
   },
   {
     slug: "defence",
@@ -338,9 +353,9 @@ export const streams: Stream[] = [
       "Domicile Certificate (where required)",
     ],
     officialWebsites: [
-      { label: "NDA (UPSC)", url: "#" },
-      { label: "Agniveer", url: "#" },
-      { label: "AFCAT", url: "#" },
+      { label: "NDA (UPSC)", url: "https://upsc.gov.in/examinations/National-Defence-Academy-NDA-Exam" },
+      { label: "Agniveer", url: "https://joinindianarmy.nic.in/" },
+      { label: "AFCAT", url: "https://afcat.cdac.in/AFCAT/" },
     ],
   },
   {
@@ -353,9 +368,9 @@ export const streams: Stream[] = [
     exams: ["CUET", "Integrated B.Ed Admissions", "KTET", "CTET"],
     documents: ["Aadhaar", "Plus Two Marksheet", "Photo", "Signature"],
     officialWebsites: [
-      { label: "CUET Portal", url: "#" },
-      { label: "KTET", url: "#" },
-      { label: "CTET", url: "#" },
+      { label: "CUET Portal", url: "https://cuet.nta.nic.in/" },
+      { label: "KTET", url: "https://ktet.kerala.gov.in/" },
+      { label: "CTET", url: "https://ctet.nic.in/" },
     ],
   },
   {
@@ -368,9 +383,9 @@ export const streams: Stream[] = [
     exams: ["SSC CHSL", "SSC MTS", "Railway Recruitment", "Indian Post", "Agniveer"],
     documents: ["Aadhaar", "Photo", "Signature", "Educational Certificates"],
     officialWebsites: [
-      { label: "SSC", url: "#" },
-      { label: "Railway Recruitment Board", url: "#" },
-      { label: "India Post", url: "#" },
+      { label: "SSC", url: "https://ssc.gov.in/" },
+      { label: "Railway Recruitment Board", url: "https://rrb.indianrailways.gov.in/" },
+      { label: "India Post", url: "https://indiapostgdsonline.gov.in/" },
     ],
   },
   {
@@ -388,7 +403,7 @@ export const streams: Stream[] = [
       "Class 10 Certificate",
       "Plus Two Details",
     ],
-    officialWebsites: [{ label: "CUET Portal", url: "#" }],
+    officialWebsites: [{ label: "CUET Portal", url: "https://cuet.nta.nic.in/" }],
   },
 ];
 
@@ -504,6 +519,19 @@ export const orgName = "msf Kamicheri Unit";
 export const orgTagline = "Together for a Better Tomorrow";
 export const orgLine = `A Career, Entrance & Scholarship Guidance Initiative by ${orgName}`;
 
+export const contactEmail = "ihsaneducare7@gmail.com";
+
+export type ContactPerson = {
+  name: string;
+  phone: string;
+};
+
+export const contactPersons: ContactPerson[] = [
+  { name: "Sinan", phone: "+91 94953 94413" },
+  { name: "Aslah", phone: "+91 96058 19333" },
+  { name: "Said", phone: "+91 97782 37032" },
+];
+
 export const heroTagline: Bilingual = {
   ml: "അറിവിലൂടെ അവസരങ്ങളിലേക്ക്",
   en: "Through Knowledge, Towards Opportunities",
@@ -515,6 +543,23 @@ export const memorial = {
     ml: "വിദ്യാർത്ഥികളുടെ ഭാവി രൂപപ്പെടുത്തുന്നതിൽ ഒരു വഴികാട്ടിയാകുക എന്ന ലക്ഷ്യത്തോടെയാണ് നമ്മുടെ പ്രിയ സുഹൃത്ത് മുഹമ്മദ് ഇഹ്സാന്റെ സ്മരണാർത്ഥം IHSAN EDUCARE ആരംഭിക്കുന്നത്.",
     en: "IHSAN EDUCARE is started in loving memory of our dear friend Muhammed Ihsan, with the goal of being a guide in shaping students' futures.",
   } satisfies Bilingual,
+};
+
+// Full tribute written by the community after Ihsan's passing.
+export const memorialTribute = {
+  title: "ഇഹ്സാൻ – വേർപാടിന്റെ വേദനയിൽ, ഓർമ്മകളുടെ വെളിച്ചത്തിൽ",
+  paragraphs: [
+    "ജീവിതത്തിൽ ചില വേർപാടുകൾ അപ്രതീക്ഷിതമായിരിക്കും. അത് ഉൾക്കൊള്ളാൻ മനസ്സിന് സമയം വേണ്ടിവരും. ഞങ്ങളുടെ പ്രിയ സുഹൃത്തും സഹയാത്രികനുമായ ഇഹ്സാന്റെ വിയോഗം അത്തരത്തിലൊന്നാണ്. ഒരു ബസ് അപകടം ഞങ്ങളിൽ നിന്ന് അവനെ അകറ്റിയെന്ന വാർത്ത ഇന്നും മനസ്സിനെ വേദനിപ്പിക്കുന്നു.",
+    "ഞങ്ങളുടെ കൂട്ടായ്മയുടെ ഭാഗമായിരുന്ന ഇഹ്സാൻ ഒരു സുഹൃത്ത് മാത്രമായിരുന്നില്ല. എല്ലാവരോടും സ്നേഹത്തോടെയും സൗഹൃദത്തോടെയും പെരുമാറിയിരുന്ന, എപ്പോഴും പുഞ്ചിരിയോടെ കാണപ്പെട്ടിരുന്ന ഒരു നല്ല മനുഷ്യനായിരുന്നു. ആരെയെങ്കിലും സഹായിക്കാനോ, ഒരു സന്തോഷ നിമിഷത്തിൽ പങ്കുചേരാനോ, ഒരു വിഷമ ഘട്ടത്തിൽ കൂടെ നിൽക്കാനോ ഇഹ്സാൻ എപ്പോഴും മുന്നിലുണ്ടായിരുന്നു. അതുകൊണ്ടുതന്നെ അവന്റെ വേർപാട് ഞങ്ങളുടെ ഓരോരുത്തരുടെയും ഹൃദയത്തിൽ വലിയൊരു ശൂന്യതയാണ് സൃഷ്ടിച്ചിരിക്കുന്നത്.",
+    "ഒരുമിച്ച് ചിലവഴിച്ച നിമിഷങ്ങൾ, പങ്കുവെച്ച ചിരികൾ, സൗഹൃദത്തിന്റെ മധുരമുള്ള ഓർമ്മകൾ—ഇന്നെല്ലാം മനസ്സിലൂടെ കടന്നുപോകുമ്പോൾ അവൻ ഞങ്ങളോടൊപ്പം തന്നെയുണ്ടെന്ന് തോന്നുന്നു. പക്ഷേ യാഥാർത്ഥ്യം അവൻ ഇനി ഞങ്ങളോടൊപ്പമില്ല എന്നതാണ്. ആ സത്യം അംഗീകരിക്കാൻ ഇന്നും പ്രയാസമാണ്.",
+    "ജീവിതം എത്ര നിസ്സാരവും അനിശ്ചിതവുമാണെന്ന് ഇഹ്സാന്റെ വേർപാട് നമ്മെ വീണ്ടും ഓർമ്മിപ്പിക്കുന്നു. ഇന്നലെ വരെ നമ്മോടൊപ്പം സംസാരിച്ചും ചിരിച്ചും നടന്ന ഒരാൾ ഇന്ന് ഓർമ്മകളായി മാറിയിരിക്കുന്നു. എന്നാൽ നല്ല മനുഷ്യർ ഒരിക്കലും പൂർണമായി അപ്രത്യക്ഷരാകില്ല; അവർ മറ്റുള്ളവരുടെ മനസ്സുകളിൽ സൃഷ്ടിച്ച സ്നേഹത്തിലൂടെയും നന്മകളിലൂടെയും എന്നും ജീവിക്കും.",
+    "പ്രിയ ഇഹ്സാൻ, നീ ഞങ്ങളിൽ നിന്ന് അകന്നുപോയെങ്കിലും നിന്റെ ഓർമ്മകൾ എന്നും ഞങ്ങളോടൊപ്പമുണ്ടാകും. നിന്റെ പുഞ്ചിരിയും സൗഹൃദവും സ്നേഹവും ഞങ്ങളുടെ ഹൃദയങ്ങളിൽ എന്നും നിലനിൽക്കും. നിന്റെ വേർപാട് ഞങ്ങൾക്ക് തീരാനഷ്ടമാണ്.",
+    "അല്ലാഹു നിന്റെ എല്ലാ പാപങ്ങളും പൊറുത്ത് നൽകി, ഖബർ ജീവിതം വിശാലമാക്കി, ജന്നത്തുൽ ഫിർദൗസ് നൽകി അനുഗ്രഹിക്കട്ടെ. നിന്റെ കുടുംബത്തിനും പ്രിയപ്പെട്ടവർക്കും ഈ ദുഃഖം സഹിക്കാനുള്ള ക്ഷമയും കരുത്തും നൽകട്ടെ.",
+  ],
+  quote:
+    "ഓർമ്മകളിൽ ജീവിക്കുന്നവർ ഒരിക്കലും മരിക്കുന്നില്ല; അവർ സ്നേഹിച്ച ഹൃദയങ്ങളിൽ എന്നും നിലനിൽക്കും.",
+  closing:
+    "പ്രിയ ഇഹ്സാന് ആദരാഞ്ജലികൾ… അല്ലാഹു മഗ്ഫിറത്തും ജന്നത്തുല്‍ ഫിര്‍ദൗസും നല്‍കി അനുഗ്രഹിക്കട്ടെ. ആമീൻ.",
 };
 
 export const aboutContent = {

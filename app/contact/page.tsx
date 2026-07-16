@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
-import { orgLine, orgTagline } from "@/lib/data";
+import { contactEmail, contactPersons, orgLine, orgTagline } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact — IHSAN EDUCARE",
@@ -30,6 +31,35 @@ export default function ContactPage() {
             <p className="mt-4 font-display text-xl text-gold-600">
               &ldquo;{orgTagline}&rdquo;
             </p>
+
+            <div className="mt-8 space-y-4 rounded-2xl border border-brand-900/8 bg-white p-6 shadow-sm">
+              <a
+                href={`mailto:${contactEmail}`}
+                className="flex items-center gap-3 text-sm font-medium text-brand-900/80 transition-colors hover:text-gold-600"
+              >
+                <Icon
+                  name="envelope"
+                  className="text-base text-gold-600"
+                />
+                {contactEmail}
+              </a>
+              <ul className="space-y-3">
+                {contactPersons.map((person) => (
+                  <li key={person.name}>
+                    <a
+                      href={`tel:${person.phone.replace(/\s+/g, "")}`}
+                      className="flex items-center gap-3 text-sm font-medium text-brand-900/80 transition-colors hover:text-gold-600"
+                    >
+                      <Icon name="phone" className="text-base text-gold-600" />
+                      <span>
+                        {person.name}
+                        <span className="text-brand-900/50"> — {person.phone}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </Reveal>
 

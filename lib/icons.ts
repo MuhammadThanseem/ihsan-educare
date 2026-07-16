@@ -31,6 +31,7 @@ import {
   faChartLine,
   faFeatherPointed,
   faLayerGroup,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const icons = {
@@ -66,6 +67,7 @@ export const icons = {
   "chart-line": faChartLine,
   "feather-pointed": faFeatherPointed,
   "layer-group": faLayerGroup,
+  envelope: faEnvelope,
 };
 
 export type IconName = keyof typeof icons;

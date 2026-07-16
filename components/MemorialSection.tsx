@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { memorial } from "@/lib/data";
 import Icon from "./Icon";
 
@@ -25,6 +26,12 @@ export default function MemorialSection() {
         <p className="mx-auto mt-3 max-w-2xl text-sm text-brand-100/60">
           {memorial.dedication.en}
         </p>
+        <Link
+          href="/in-memory"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 transition-colors hover:text-gold-200"
+        >
+          Read the full tribute →
+        </Link>
       </div>
     </div>
   );

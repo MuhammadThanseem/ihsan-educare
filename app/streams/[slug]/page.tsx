@@ -70,6 +70,8 @@ export default async function StreamDetailPage({
             <li key={site.label}>
               <a
                 href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-brand-700 hover:text-gold-600 hover:underline"
               >
                 {site.label} →
