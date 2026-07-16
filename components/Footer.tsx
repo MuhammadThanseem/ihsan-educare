@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import Parallax from "./Parallax";
 import { orgTagline } from "@/lib/data";
 
 const links = [
@@ -11,12 +12,16 @@ const links = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-gold-900/40 bg-brand-950 text-sand-100">
-      <span
+      <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-10 left-1/2 hidden -translate-x-1/2 select-none font-display text-[9rem] font-semibold leading-none tracking-tight text-white/[0.03] sm:block lg:text-[12rem]"
+        className="pointer-events-none absolute -bottom-10 left-1/2 hidden -translate-x-1/2 sm:block"
       >
-        IHSAN EDUCARE
-      </span>
+        <Parallax speed={0.15}>
+          <span className="select-none font-display text-[9rem] font-semibold leading-none tracking-tight text-white/[0.03] lg:text-[12rem]">
+            IHSAN EDUCARE
+          </span>
+        </Parallax>
+      </div>
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-14 sm:px-6 lg:pb-14">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>

@@ -12,6 +12,8 @@ import FeaturedCategoryCard from "@/components/FeaturedCategoryCard";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import HeroIntro from "@/components/HeroIntro";
+import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
+import Parallax from "@/components/Parallax";
 import QuickAccess from "@/components/QuickAccess";
 import AboutSection from "@/components/AboutSection";
 import AudienceSection from "@/components/AudienceSection";
@@ -57,19 +59,18 @@ export default function Home() {
 
       {/* Hero */}
       <section id="hero-top" className="bg-grain relative scroll-mt-24 overflow-hidden bg-sand-50">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(ellipse_at_top,_var(--color-brand-100)_0%,_transparent_65%),radial-gradient(ellipse_at_60%_10%,_var(--color-gold-100)_0%,_transparent_50%)]"
-        />
+        <AnimatedHeroBackground />
         <HeroIntro>
-          <Image
-            src="/Logo.png"
-            alt="IHSAN EDUCARE logo"
-            width={88}
-            height={88}
-            className="h-[88px] w-[88px] rounded-full object-cover shadow-lg ring-4 ring-white"
-            priority
-          />
+          <Parallax speed={0.25}>
+            <Image
+              src="/Logo.png"
+              alt="IHSAN EDUCARE logo"
+              width={88}
+              height={88}
+              className="h-[88px] w-[88px] rounded-full object-cover shadow-lg ring-4 ring-white"
+              priority
+            />
+          </Parallax>
           <p lang="ml" className="text-sm font-medium tracking-wide text-brand-700/70">
             {heroTagline.ml}
           </p>
